@@ -5,13 +5,10 @@ from datetime import datetime
 
 print("Welcome to Sorter")
 pathsource = input("Enter the Folder Name eg Downloads\n")
-sourcefolder=f"C:/Users/USER/{pathsource}"
+sourcefolder=f"C:/path/path/{pathsource}"
 path = Path(sourcefolder)
 listoftypes = []
 try:
-#  if not path.is_dir():
-#         print(f"Error: '{sourcefolder}' is not a valid directory.")
-
  countfile = 0       
  countdir =0
  print(f"Files and their types in '{sourcefolder}':")
@@ -38,7 +35,7 @@ try:
                              os.makedirs(destinationfolder)
                              print(f"Creating folder: {destinationfolder}")
                         for filename in os.listdir(sourcefolder):
-                             #eg C:/Users/User/Downloads/egg.extension for all files basically in the source folder, we move from source path to destination path
+                             #eg C:/path/path/Downloads/egg.extension for all files basically in the source folder, we move from source path to destination path
                              #file must be joined to a path
                              sourcepath= os.path.join(sourcefolder,filename)
                              if os.path.isfile(sourcepath) and filename.endswith(withdot):
@@ -47,13 +44,9 @@ try:
                                   shutil.move(sourcepath,destinationpath)
                      print(f"Moving {countfile} {typeoffile}s files")
                      print(f"Movement Completed")
-                     
-                     #print("")
              else:
                  print(f"This file extension is unknown")
-         
-         
-         
+            
          
  print(f"You have {countdir} directories in this path\n\n\n")
  print(f"Ended Process at {datetime.now()}")
